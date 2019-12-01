@@ -1,0 +1,228 @@
+version: "3"
+services:
+  partyA:
+    build: .
+    volumes:
+      # The node configuration
+      - ./participants/partyA/node.conf:/app/node.conf:ro
+      # The network parameters (https://docs.corda.net/network-map.html#network-parameters) all nodes share
+      - ./shared/network-parameters:/app/network-parameters:ro
+      # The additional node infos (https://docs.corda.net/network-map.html#the-additional-node-infos-directory)
+      - ./shared/infos:/app/additional-node-infos
+      # The business network CorDapps
+      - ./shared/cordapps/membership-service-1.0.jar:/app/cordapps/membership-service-1.0.jar:ro
+      - ./shared/cordapps/membership-service-contracts-and-states-1.0.jar:/app/cordapps/membership-service-contracts-and-states-1.0.jar:ro
+      # The CorDapp containing the business logic of the participant
+      - ./shared/cordapps/contracts-0.1.jar:/app/cordapps/contracts-0.1.jar:ro
+      - ./shared/cordapps/workflows-0.1.jar:/app/cordapps/workflows-0.1.jar:ro
+      # The business network participant configuration stating which operator is permitted
+      - ./shared/membership-service-member.conf:/app/cordapps/config/membership-service.conf:ro
+      # The nodes certificate directory containing all three key stores
+      - ./participants/partyA/certificates:/app/certificates:ro
+      # The logs to expose to the host machine
+      - ./logs/partyA:/app/logs
+    ports:
+      - "10001:10001"
+      - "10002:10002"
+      - "10003:10003"
+      - "10004:10004"
+  partyB:
+    build: .
+    volumes:
+      # The node configuration
+      - ./participants/partyB/node.conf:/app/node.conf:ro
+      # The network parameters (https://docs.corda.net/network-map.html#network-parameters) all nodes share
+      - ./shared/network-parameters:/app/network-parameters:ro
+      # The additional node infos (https://docs.corda.net/network-map.html#the-additional-node-infos-directory)
+      - ./shared/infos:/app/additional-node-infos
+      # The business network CorDapps
+      - ./shared/cordapps/membership-service-1.0.jar:/app/cordapps/membership-service-1.0.jar:ro
+      - ./shared/cordapps/membership-service-contracts-and-states-1.0.jar:/app/cordapps/membership-service-contracts-and-states-1.0.jar:ro
+      # The CorDapp containing the business logic of the participant
+      - ./shared/cordapps/contracts-0.1.jar:/app/cordapps/contracts-0.1.jar:ro
+      - ./shared/cordapps/workflows-0.1.jar:/app/cordapps/workflows-0.1.jar:ro
+      # The business network participant configuration stating which operator is permitted
+      - ./shared/membership-service-member.conf:/app/cordapps/config/membership-service.conf:ro
+      # The nodes certificate directory containing all three key stores
+      - ./participants/partyB/certificates:/app/certificates:ro
+      # The logs to expose to the host machine
+      - ./logs/partyB:/app/logs
+    ports:
+      - "20001:20001"
+      - "20002:20002"
+      - "20003:20003"
+      - "20004:20004"
+  partyC:
+    build: .
+    volumes:
+      # The node configuration
+      - ./participants/partyC/node.conf:/app/node.conf:ro
+      # The network parameters (https://docs.corda.net/network-map.html#network-parameters) all nodes share
+      - ./shared/network-parameters:/app/network-parameters:ro
+      # The additional node infos (https://docs.corda.net/network-map.html#the-additional-node-infos-directory)
+      - ./shared/infos:/app/additional-node-infos
+      # The business network CorDapps
+      - ./shared/cordapps/membership-service-1.0.jar:/app/cordapps/membership-service-1.0.jar:ro
+      - ./shared/cordapps/membership-service-contracts-and-states-1.0.jar:/app/cordapps/membership-service-contracts-and-states-1.0.jar:ro
+      # The CorDapp containing the business logic of the participant
+      - ./shared/cordapps/contracts-0.1.jar:/app/cordapps/contracts-0.1.jar:ro
+      - ./shared/cordapps/workflows-0.1.jar:/app/cordapps/workflows-0.1.jar:ro
+      # The business network participant configuration stating which operator is permitted
+      - ./shared/membership-service-member.conf:/app/cordapps/config/membership-service.conf:ro
+      # The nodes certificate directory containing all three key stores
+      - ./participants/partyC/certificates:/app/certificates:ro
+      # The logs to expose to the host machine
+      - ./logs/partyC:/app/logs
+    ports:
+      - "30001:30001"
+      - "30002:30002"
+      - "30003:30003"
+      - "30004:30004"
+  partyD:
+    build: .
+    volumes:
+      # The node configuration
+      - ./participants/partyD/node.conf:/app/node.conf:ro
+      # The network parameters (https://docs.corda.net/network-map.html#network-parameters) all nodes share
+      - ./shared/network-parameters:/app/network-parameters:ro
+      # The additional node infos (https://docs.corda.net/network-map.html#the-additional-node-infos-directory)
+      - ./shared/infos:/app/additional-node-infos
+      # The business network CorDapps
+      - ./shared/cordapps/membership-service-1.0.jar:/app/cordapps/membership-service-1.0.jar:ro
+      - ./shared/cordapps/membership-service-contracts-and-states-1.0.jar:/app/cordapps/membership-service-contracts-and-states-1.0.jar:ro
+      # The CorDapp containing the business logic of the participant
+      - ./shared/cordapps/contracts-0.1.jar:/app/cordapps/contracts-0.1.jar:ro
+      - ./shared/cordapps/workflows-0.1.jar:/app/cordapps/workflows-0.1.jar:ro
+      # The business network participant configuration stating which operator is permitted
+      - ./shared/membership-service-member.conf:/app/cordapps/config/membership-service.conf:ro
+      # The nodes certificate directory containing all three key stores
+      - ./participants/partyD/certificates:/app/certificates:ro
+      # The logs to expose to the host machine
+      - ./logs/partyD:/app/logs
+    ports:
+      - "40001:40001"
+      - "40002:40002"
+      - "40003:40003"
+      - "40004:40004"
+  partyE:
+    build: .
+    volumes:
+      # The node configuration
+      - ./participants/partyE/node.conf:/app/node.conf:ro
+      # The network parameters (https://docs.corda.net/network-map.html#network-parameters) all nodes share
+      - ./shared/network-parameters:/app/network-parameters:ro
+      # The additional node infos (https://docs.corda.net/network-map.html#the-additional-node-infos-directory)
+      - ./shared/infos:/app/additional-node-infos
+      # The business network CorDapps
+      - ./shared/cordapps/membership-service-1.0.jar:/app/cordapps/membership-service-1.0.jar:ro
+      - ./shared/cordapps/membership-service-contracts-and-states-1.0.jar:/app/cordapps/membership-service-contracts-and-states-1.0.jar:ro
+      # The CorDapp containing the business logic of the participant
+      - ./shared/cordapps/contracts-0.1.jar:/app/cordapps/contracts-0.1.jar:ro
+      - ./shared/cordapps/workflows-0.1.jar:/app/cordapps/workflows-0.1.jar:ro
+      # The business network participant configuration stating which operator is permitted
+      - ./shared/membership-service-member.conf:/app/cordapps/config/membership-service.conf:ro
+      # The nodes certificate directory containing all three key stores
+      - ./participants/partyE/certificates:/app/certificates:ro
+      # The logs to expose to the host machine
+      - ./logs/partyE:/app/logs
+    ports:
+      - "50001:50001"
+      - "50002:50002"
+      - "50003:50003"
+      - "50004:50004"
+  partyF:
+    build: .
+    volumes:
+      # The node configuration
+      - ./participants/partyF/node.conf:/app/node.conf:ro
+      # The network parameters (https://docs.corda.net/network-map.html#network-parameters) all nodes share
+      - ./shared/network-parameters:/app/network-parameters:ro
+      # The additional node infos (https://docs.corda.net/network-map.html#the-additional-node-infos-directory)
+      - ./shared/infos:/app/additional-node-infos
+      # The business network CorDapps
+      - ./shared/cordapps/membership-service-1.0.jar:/app/cordapps/membership-service-1.0.jar:ro
+      - ./shared/cordapps/membership-service-contracts-and-states-1.0.jar:/app/cordapps/membership-service-contracts-and-states-1.0.jar:ro
+      # The CorDapp containing the business logic of the participant
+      - ./shared/cordapps/contracts-0.1.jar:/app/cordapps/contracts-0.1.jar:ro
+      - ./shared/cordapps/workflows-0.1.jar:/app/cordapps/workflows-0.1.jar:ro
+      # The business network participant configuration stating which operator is permitted
+      - ./shared/membership-service-member.conf:/app/cordapps/config/membership-service.conf:ro
+      # The nodes certificate directory containing all three key stores
+      - ./participants/partyF/certificates:/app/certificates:ro
+      # The logs to expose to the host machine
+      - ./logs/partyF:/app/logs
+    ports:
+      - "60001:60001"
+      - "60002:60002"
+      - "60003:60003"
+      - "60004:60004"
+  partyG:
+    build: .
+    volumes:
+      # The node configuration
+      - ./participants/partyG/node.conf:/app/node.conf:ro
+      # The network parameters (https://docs.corda.net/network-map.html#network-parameters) all nodes share
+      - ./shared/network-parameters:/app/network-parameters:ro
+      # The additional node infos (https://docs.corda.net/network-map.html#the-additional-node-infos-directory)
+      - ./shared/infos:/app/additional-node-infos
+      # The business network CorDapps
+      - ./shared/cordapps/membership-service-1.0.jar:/app/cordapps/membership-service-1.0.jar:ro
+      - ./shared/cordapps/membership-service-contracts-and-states-1.0.jar:/app/cordapps/membership-service-contracts-and-states-1.0.jar:ro
+      # The CorDapp containing the business logic of the participant
+      - ./shared/cordapps/contracts-0.1.jar:/app/cordapps/contracts-0.1.jar:ro
+      - ./shared/cordapps/workflows-0.1.jar:/app/cordapps/workflows-0.1.jar:ro
+      # The business network participant configuration stating which operator is permitted
+      - ./shared/membership-service-member.conf:/app/cordapps/config/membership-service.conf:ro
+      # The nodes certificate directory containing all three key stores
+      - ./participants/partyG/certificates:/app/certificates:ro
+      # The logs to expose to the host machine
+      - ./logs/partyG:/app/logs
+    ports:
+      - "70001:70001"
+      - "70002:70002"
+      - "70003:70003"
+      - "70004:70004"
+  partyH:
+    build: .
+    volumes:
+      # The node configuration
+      - ./participants/partyH/node.conf:/app/node.conf:ro
+      # The network parameters (https://docs.corda.net/network-map.html#network-parameters) all nodes share
+      - ./shared/network-parameters:/app/network-parameters:ro
+      # The additional node infos (https://docs.corda.net/network-map.html#the-additional-node-infos-directory)
+      - ./shared/infos:/app/additional-node-infos
+      # The business network CorDapps
+      - ./shared/cordapps/membership-service-1.0.jar:/app/cordapps/membership-service-1.0.jar:ro
+      - ./shared/cordapps/membership-service-contracts-and-states-1.0.jar:/app/cordapps/membership-service-contracts-and-states-1.0.jar:ro
+      # The CorDapp containing the business logic of the participant
+      - ./shared/cordapps/contracts-0.1.jar:/app/cordapps/contracts-0.1.jar:ro
+      - ./shared/cordapps/workflows-0.1.jar:/app/cordapps/workflows-0.1.jar:ro
+      # The business network participant configuration stating which operator is permitted
+      - ./shared/membership-service-member.conf:/app/cordapps/config/membership-service.conf:ro
+      # The nodes certificate directory containing all three key stores
+      - ./participants/partyH/certificates:/app/certificates:ro
+      # The logs to expose to the host machine
+      - ./logs/partyH:/app/logs
+    ports:
+      - "80001:80001"
+      - "80002:80002"
+      - "80003:80003"
+      - "80004:80004"
+  notary:
+    build: .
+    volumes:
+      # The node configuration
+      - ./participants/notary/node.conf:/app/node.conf:ro
+      # The network parameters (https://docs.corda.net/network-map.html#network-parameters) all nodes share
+      - ./shared/network-parameters:/app/network-parameters:ro
+      # The additional node infos (https://docs.corda.net/network-map.html#the-additional-node-infos-directory)
+      - ./shared/infos:/app/additional-node-infos
+      # The nodes certificate directory containing all three key stores
+      - ./participants/notary/certificates:/app/certificates:ro
+      # The logs to expose to the host machine
+      - ./logs/notary:/app/logs
+    ports:
+      - "90001:90001"
+      - "90002:90002"
+      - "90003:90003"
+      - "90004:90004"
