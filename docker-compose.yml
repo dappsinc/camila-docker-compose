@@ -1,6 +1,6 @@
 version: "3"
 services:
-  partyA:
+  partya:
     build: .
     volumes:
       # The node configuration
@@ -26,7 +26,7 @@ services:
       - "10002:10002"
       - "10003:10003"
       - "10004:10004"
-  partyB:
+  partyb:
     build: .
     volumes:
       # The node configuration
@@ -52,7 +52,7 @@ services:
       - "20002:20002"
       - "20003:20003"
       - "20004:20004"
-  partyC:
+  partyc:
     build: .
     volumes:
       # The node configuration
@@ -78,7 +78,7 @@ services:
       - "30002:30002"
       - "30003:30003"
       - "30004:30004"
-  partyD:
+  partyd:
     build: .
     volumes:
       # The node configuration
@@ -104,7 +104,7 @@ services:
       - "40002:40002"
       - "40003:40003"
       - "40004:40004"
-  partyE:
+  partye:
     build: .
     volumes:
       # The node configuration
@@ -130,7 +130,7 @@ services:
       - "50002:50002"
       - "50003:50003"
       - "50004:50004"
-  partyF:
+  partyf:
     build: .
     volumes:
       # The node configuration
@@ -156,7 +156,7 @@ services:
       - "60002:60002"
       - "60003:60003"
       - "60004:60004"
-  partyG:
+  partyg:
     build: .
     volumes:
       # The node configuration
@@ -182,7 +182,7 @@ services:
       - "70002:70002"
       - "70003:70003"
       - "70004:70004"
-  partyH:
+  partyh:
     build: .
     volumes:
       # The node configuration
